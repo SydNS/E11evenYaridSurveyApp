@@ -4,6 +4,8 @@ package com.example.e11evenyarid.authfragments
 
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -28,7 +30,7 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.layout_sign_up, container, false)
+        val view = inflater.inflate(R.layout.layout_sign_up, container, false)
         init(view)
         return view
     }
@@ -43,8 +45,8 @@ class SignUpFragment : Fragment() {
         }
         view.btnSignUp.setOnClickListener {
             //validate fields first
-            if (validate(view)) {
-                register(view)
+            if (validate()) {
+                register()
             }
         }
 
@@ -83,7 +85,7 @@ class SignUpFragment : Fragment() {
 
     }
 
-    private fun validate(view: View): Boolean {
+    private fun validate(): Boolean {
         if (txtEmailSignUp.text.toString().isEmpty()) {
             txtLayoutEmailSignUp.isErrorEnabled = true
             txtLayoutEmailSignUp.error = "Email is Required"
@@ -104,30 +106,48 @@ class SignUpFragment : Fragment() {
         return true
     }
 
-    private fun register(view: View) {
+    private fun register() {
         val email: String = txtEmailSignUp.text.toString()
         val password: String = txtPasswordSignUp.text.toString()
-        var mAuth = FirebaseAuth.getInstance();
-        mAuth?.createUserWithEmailAndPassword(email, password)
-            ?.addOnCompleteListener(activity!!) { task ->
+        val mAuth = FirebaseAuth.getInstance()
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(activity!!) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = mAuth.currentUser
+                    val nameUser: String? = user?.email.toString()
+
                     Toast.makeText(
                         activity, "Authentication Passed.$email",
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    activity!!.supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameAuthContainer, SignInFragment()).commit()
+                    val prefs: SharedPreferences? =
+                        activity?.getSharedPreferences("Stage1Details", Context.MODE_PRIVATE)
+                    prefs?.edit()?.putString("useremail", nameUser)?.apply()
+
+
+                    val preferences = activity?.getSharedPreferences(
+                        "CheckFirstTime",
+                        Context.MODE_PRIVATE
+                    )
+                    val checkfirsttime = preferences?.getString("OldOrNew", "email")
+                    if (checkfirsttime == null) {
+                        activity!!.supportFragmentManager.beginTransaction()
+                            .replace(R.id.frameAuthContainer, ProfileSetUpFragment()).commit()
+                    } else {
+                        activity!!.supportFragmentManager.beginTransaction()
+                            .replace(R.id.frameAuthContainer, SignInFragment()).commit()
+                    }
 
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
 
-                    val thError=task.exception?.message.toString()
-                    Toast.makeText(activity, "Signing up Failed. $thError",Toast.LENGTH_LONG).show()
+                    val thError = task.exception?.message.toString()
+                    Toast.makeText(activity, "Signing up Failed. $thError", Toast.LENGTH_LONG)
+                        .show()
                 }
             }
 

@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.e11evenyarid.authfragments
 
 import android.app.ProgressDialog
@@ -13,7 +15,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.e11evenyarid.MainActivity
 import com.example.e11evenyarid.R
+import com.example.e11evenyarid.models.UserProfile
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.layout_profile_set_up.*
 import kotlinx.android.synthetic.main.layout_profile_set_up.view.*
 
@@ -22,19 +27,23 @@ import kotlinx.android.synthetic.main.layout_profile_set_up.view.*
 class ProfileSetUpFragment : Fragment() {
     private var dialog: ProgressDialog? = null
 
+
     private var mAuth: FirebaseAuth? = null
+    val database = Firebase.database
+    val myRef = database.getReference("UserProfiles")
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.layout_profile_set_up, container, false)
+        val view = inflater.inflate(R.layout.layout_profile_set_up, container, false)
         init(view)
         return view
     }
 
     private fun init(view: View) {
-        val user = mAuth?.currentUser
+        mAuth?.currentUser
 
         val preferences = this.activity!!.getSharedPreferences(
             "Stage1Details",
@@ -52,7 +61,7 @@ class ProfileSetUpFragment : Fragment() {
         view.btnSignUp.setOnClickListener {
             //validate fields first
             if (validate(view)) {
-                createProfile(view)
+                createProfile()
 
 
             }
@@ -124,24 +133,24 @@ class ProfileSetUpFragment : Fragment() {
             txtLayoutEmailSignUp.error = "Email is Required"
             return false
         }
-        if (view?.txtfirstname.text.toString().isEmpty()) {
+        if (view.txtfirstname.text.toString().isEmpty()) {
             txtfirstLayoutname.isErrorEnabled = true
             txtfirstLayoutname.error = "Please enter your first name"
             return false
         }
-        if (view?.txtlastname.text.toString().isEmpty()) {
+        if (view.txtlastname.text.toString().isEmpty()) {
             txtLayoutlastname.isErrorEnabled = true
             txtLayoutlastname.error = "Please enter your last name"
             return false
         }
 
-        if (view?.residence.text.toString().isEmpty()) {
+        if (view.residence.text.toString().isEmpty()) {
             txtLayoutresidence.isErrorEnabled = true
             txtLayoutresidence.error = "Please enter your residential area"
             return false
         }
 
-        if (view?.Country_of_origin.text.toString().isEmpty()) {
+        if (view.Country_of_origin.text.toString().isEmpty()) {
             txtLayout_Country_of_origin.isErrorEnabled = true
             txtLayout_Country_of_origin.error = "Please enter your Country of origin"
             return false
@@ -151,41 +160,27 @@ class ProfileSetUpFragment : Fragment() {
         return true
     }
 
-    private fun createProfile(view: View) {
+    private fun createProfile() {
 
-        val prefs: SharedPreferences? =activity?.getSharedPreferences("CheckFirstTime", Context.MODE_PRIVATE)
-        prefs?.edit()?.putString("OldOrNew","Installed_Already" )?.apply()
+        val prefs: SharedPreferences? =
+            activity?.getSharedPreferences("CheckFirstTime", Context.MODE_PRIVATE)
+        prefs?.edit()?.putString("OldOrNew", "Installed_Already")?.apply()
 
-        startActivity(Intent(activity,MainActivity::class.java))
+        startActivity(Intent(activity, MainActivity::class.java))
         activity?.finish()
 
-//        val email: String = txtEmailSignUp.text.toString()
-//        val password: String = txtPasswordSignUp.text.toString()
-//        var mAuth = FirebaseAuth.getInstance();
-//        mAuth?.createUserWithEmailAndPassword(email, password)
-//            ?.addOnCompleteListener(activity!!) { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    Log.d(TAG, "createUserWithEmail:success")
-//                    val user = mAuth.currentUser
-//                    Toast.makeText(
-//                        activity, "Authentication Passed.$email",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    startActivity(Intent(activity, MainActivity::class.java))
-//
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-//                    Toast.makeText(
-//                        activity, "Authentication failed.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//
-//                // ...
-//            }
-//
+        val email: String = txtEmailSignUp.text.toString()
+        val Country_of_origin: String = Country_of_origin.text.toString()
+        val residence: String = residence.text.toString()
+        val txtlastname: String = txtlastname.text.toString()
+        val txtfirstname: String = txtfirstname.text.toString()
+
+        val userProfile =
+            UserProfile(email, Country_of_origin, residence, txtlastname, txtfirstname)
+
+        FirebaseAuth.getInstance()
+
+        myRef.setValue(userProfile)
     }
 
 

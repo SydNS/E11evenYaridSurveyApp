@@ -1,10 +1,10 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.e11evenyarid.authfragments
 
 import android.app.ProgressDialog
 import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -98,40 +98,28 @@ class SignInFragment : Fragment() {
 
         val email: String = txtEmailSignIn.text.toString()
         val password: String = txtPasswordSignIn.text.toString()
-        var mAuth = FirebaseAuth.getInstance();
-        mAuth?.signInWithEmailAndPassword(email, password)
-            ?.addOnCompleteListener(activity!!) { task ->
+        val mAuth = FirebaseAuth.getInstance()
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(activity!!) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     val user = mAuth.currentUser
-                    var nameUser: String? = user?.email.toString()
+                    user?.email.toString()
 
-                    val prefs: SharedPreferences? =
-                        activity?.getSharedPreferences("Stage1Details", Context.MODE_PRIVATE)
-                    prefs?.edit()?.putString("useremail", nameUser)?.apply()
 
                     Toast.makeText(
                         activity, "Welcome.${user?.email}",
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val preferences = activity?.getSharedPreferences(
-                        "CheckFirstTime",
-                        Context.MODE_PRIVATE
-                    )
-                    val checkfirsttime = preferences?.getString("OldOrNew", "email")
-                    if (checkfirsttime == null) {
-                        activity!!.supportFragmentManager.beginTransaction()
-                            .replace(R.id.frameAuthContainer, ProfileSetUpFragment()).commit()
-                    } else {
-                        startActivity(Intent(activity, MainActivity::class.java))
-                        activity?.finish()
-                    }
+                    startActivity(Intent(activity, MainActivity::class.java))
+                    activity?.finish()
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
-                    var thError = task.exception?.message.toString()
+                    val thError = task.exception?.message.toString()
                     Toast.makeText(
                         activity, "Authentication failed. $thError",
                         Toast.LENGTH_SHORT
