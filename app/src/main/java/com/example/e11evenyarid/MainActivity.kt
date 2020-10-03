@@ -3,6 +3,7 @@ package com.example.e11evenyarid
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -11,12 +12,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import com.example.e11evenyarid.maindrawerfragments.HomeDrawerFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val mAuth: FirebaseAuth? = null
+
+    private var mAuth: FirebaseAuth? = null
     var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     val firebaseAuth = FirebaseAuth.getInstance()
     val authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
@@ -58,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                     )
                     preferences?.edit()?.remove("useremail")?.commit()
                     Toast.makeText(this, "Bye Bye", Toast.LENGTH_LONG).show()
+                    mAuth?.signOut()
                     startActivity(
                         Intent(
                             this,
@@ -102,30 +106,22 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser: FirebaseUser? = mAuth?.currentUser
-//        Toast.makeText(this, currentUser.toString(), Toast.LENGTH_SHORT).show()
-//        if (currentUser == null) {
-//            startActivity(
-//                Intent(
-//                    this,
-//                    AuthActivity::class.java
-//                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            )
-//            finish()
-//        }
-//    }
-//        val preferences = this?.getSharedPreferences(
-//            "Stage1Details",
-//            Context.MODE_PRIVATE
-//        )
-//        val useremail = preferences.getString("useremail", "email")
-//        if (useremail==null){
-//            startActivity(Intent(this,AuthActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK))
-//            finish()
-//        }
-//        firebaseAuth!!.addAuthStateListener(this.authStateListener)
-//    }
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser: FirebaseUser? = mAuth?.currentUser
+
+        Log.e("error", currentUser.toString())
+        if (currentUser == null) {
+            startActivity(
+                Intent(
+                    this,
+                    AuthActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            )
+            finish()
+        }
+    }
 }
