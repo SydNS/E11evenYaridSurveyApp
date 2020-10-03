@@ -9,10 +9,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import com.example.e11evenyarid.authfragments.ProfileSetUpFragment
 import com.example.e11evenyarid.maindrawerfragments.HomeDrawerFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -54,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.logout -> {
-                    val preferences = this?.getSharedPreferences(
+                    val preferences = this.getSharedPreferences(
                         "Stage1Details",
                         Context.MODE_PRIVATE
                     )
-                    preferences?.edit()?.remove("useremail")
+                    preferences?.edit()?.remove("useremail")?.commit()
                     Toast.makeText(this, "Bye Bye", Toast.LENGTH_LONG).show()
                     startActivity(
                         Intent(
@@ -118,6 +116,7 @@ class MainActivity : AppCompatActivity() {
 //            )
 //            finish()
 //        }
+//    }
 //        val preferences = this?.getSharedPreferences(
 //            "Stage1Details",
 //            Context.MODE_PRIVATE
