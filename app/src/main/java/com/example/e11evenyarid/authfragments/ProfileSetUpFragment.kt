@@ -30,7 +30,7 @@ class ProfileSetUpFragment : Fragment() {
 
     private var mAuth: FirebaseAuth? = null
     val database = Firebase.database
-    val myRef = database.getReference("UserProfiles")
+    val myRef = database.getReference("usersEmail")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -162,12 +162,7 @@ class ProfileSetUpFragment : Fragment() {
 
     private fun createProfile() {
 
-        val prefs: SharedPreferences? =
-            activity?.getSharedPreferences("CheckFirstTime", Context.MODE_PRIVATE)
-        prefs?.edit()?.putString("OldOrNew", "Installed_Already")?.apply()
 
-        startActivity(Intent(activity, MainActivity::class.java))
-        activity?.finish()
 
         val email: String = txtEmailSignUp.text.toString()
         val Country_of_origin: String = Country_of_origin.text.toString()
@@ -181,7 +176,16 @@ class ProfileSetUpFragment : Fragment() {
         FirebaseAuth.getInstance()
 
         myRef.setValue(userProfile)
+
+        val prefs: SharedPreferences? =
+            activity?.getSharedPreferences("CheckFirstTime", Context.MODE_PRIVATE)
+        prefs?.edit()?.putString("OldOrNew", email)?.apply()
+
+        startActivity(Intent(activity, MainActivity::class.java))
+        activity?.finish()
     }
 
 
 }
+
+//.getReference("userProfiles")
