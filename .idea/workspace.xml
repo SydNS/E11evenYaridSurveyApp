@@ -10,24 +10,20 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a535f56-2734-4be9-a2f4-e071f045c78c" name="Default Changelist" comment="Created a Recycerview and the forestapi.xml is the viewholder for recycled data">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/adapters/RestApiRCVA.kt" afterDir="false" />
+    <list default="true" id="3a535f56-2734-4be9-a2f4-e071f045c78c" name="Default Changelist" comment="these fragments are for the bottom navigationn for the overall home navigtion,&#10;this bottom navigation will carry and put things to the users convenience">
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Addpost.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Home_HomeDrawerFragment.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Message_HomeDrawerFragment.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Notifications_HomeDrawerFragment.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/pluss.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/forestapi.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home__home_drawer.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_message__home_drawer.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications__home_drawer.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/homedrawerfragmentmenuitem.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/ProfileSetUpFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/ProfileSetUpFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/SignInFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/SignInFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/SignUpFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/SignUpFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +42,9 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="E11evenYarid" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -55,6 +54,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="SydNs &lt;sydneynsiimbe@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iJ0nka0aRBJP0toLkZ7CrswQTQ" />
@@ -188,16 +192,36 @@
       <option name="project" value="LOCAL" />
       <updated>1601691370692</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created a Recycerview and the forestapi.xml is the viewholder for recycled data">
+      <created>1601692008568</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601692008568</updated>
+    </task>
+    <task id="LOCAL-00005" summary="this is where all the firebase authentication happens and before anyone is given access to other activities">
+      <created>1601692327970</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601692327970</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added these Data classes to act as data models" />
     <MESSAGE value="Added the Volley and the other android and java networking libraries to work hand in hand with firebase" />
     <MESSAGE value="Update the development enviroment" />
     <MESSAGE value="Created a Recycerview and the forestapi.xml is the viewholder for recycled data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a Recycerview and the forestapi.xml is the viewholder for recycled data" />
+    <MESSAGE value="this is where all the firebase authentication happens and before anyone is given access to other activities" />
+    <MESSAGE value="these fragments are for the bottom navigationn for the overall home navigtion,&#10;this bottom navigation will carry and put things to the users convenience" />
+    <option name="LAST_COMMIT_MESSAGE" value="these fragments are for the bottom navigationn for the overall home navigtion,&#10;this bottom navigation will carry and put things to the users convenience" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="416" y="146" width="524" height="505" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601691538899">
@@ -216,14 +240,14 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="146" y="251" width="824" height="486" key="AndroidCreateResourceFileDialog/0.27.1366.741@0.27.1366.741" timestamp="1550157217322" />
-    <state x="532" y="212" width="291" height="373" key="AndroidCreateXmlResourceDialog" timestamp="1601612013257">
+    <state x="532" y="212" width="291" height="375" key="AndroidCreateXmlResourceDialog" timestamp="1601692650696">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="532" y="212" width="291" height="373" key="AndroidCreateXmlResourceDialog/0.27.1366.741@0.27.1366.741" timestamp="1601612013257" />
-    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2" timestamp="1601691930237">
+    <state x="532" y="212" width="291" height="375" key="AndroidCreateXmlResourceDialog/0.27.1366.741@0.27.1366.741" timestamp="1601692650696" />
+    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2" timestamp="1601692719565">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1601691930237" />
+    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1601692719565" />
     <state x="318" y="70" width="424" height="486" key="FileChooserDialogImpl" timestamp="1550156585426">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
