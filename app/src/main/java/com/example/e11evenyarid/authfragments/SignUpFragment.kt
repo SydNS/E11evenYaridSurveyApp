@@ -5,7 +5,6 @@ package com.example.e11evenyarid.authfragments
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -116,24 +115,21 @@ class SignUpFragment : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = mAuth.currentUser
-                    val nameUser: String? = user?.email.toString()
+                    val usersEmail: String? = user?.email.toString()
 
                     Toast.makeText(
-                        activity, "Authentication Passed.$email",
-                        Toast.LENGTH_SHORT
+                        activity, "Successfully Registered with .$email",
+                        Toast.LENGTH_LONG
                     ).show()
 
-                    val prefs: SharedPreferences? =
-                        activity?.getSharedPreferences("Stage1Details", Context.MODE_PRIVATE)
-                    prefs?.edit()?.putString("useremail", nameUser)?.apply()
 
-
-                    val preferences = activity?.getSharedPreferences(
+                    val prefs = activity?.getSharedPreferences(
                         "CheckFirstTime",
                         Context.MODE_PRIVATE
                     )
-                    val checkfirsttime = preferences?.getString("OldOrNew", "email")
-                    if (checkfirsttime == null) {
+                    val checkfirsttime = prefs?.getString("OldOrNew", "email")
+
+                    if (checkfirsttime != usersEmail) {
                         activity!!.supportFragmentManager.beginTransaction()
                             .replace(R.id.frameAuthContainer, ProfileSetUpFragment()).commit()
                     } else {
@@ -155,3 +151,9 @@ class SignUpFragment : Fragment() {
 
 
 }
+
+
+//val prefs: SharedPreferences? =
+//    activity?.getSharedPreferences("Stage1Details", Context.MODE_PRIVATE)
+//prefs?.edit()?.putString("useremail", nameUser)?.apply()
+//
