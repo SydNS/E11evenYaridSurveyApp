@@ -10,7 +10,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a535f56-2734-4be9-a2f4-e071f045c78c" name="Default Changelist" comment="these fragments are for the bottom navigationn for the overall home navigtion,&#10;this bottom navigation will carry and put things to the users convenience">
+    <list default="true" id="3a535f56-2734-4be9-a2f4-e071f045c78c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/adapters/CategoriesAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Search_HomeDrawerFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search__home_drawer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/itemdisplay.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -21,9 +25,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/adapters/RestApiRCVA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/adapters/RestApiRCVA.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/ProfileSetUpFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/authfragments/ProfileSetUpFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Addpost.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Addpost.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Home_HomeDrawerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags/Home_HomeDrawerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/models/UserProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/models/UserProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/forestapi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forestapi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home__home_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home__home_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home_drawer.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,15 +106,19 @@
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.e11evenyarid" />
     </key>
-    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="com.example.e11evenyarid.fragments" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout-v21" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/e11evenyarid/maindrawerfragments/HomeDrawerFragment_BottomNavigationFrags" />
       <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.e11evenyarid.adapters" />
+      <recent name="com.example.e11evenyarid.fragments" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.example.e11evenyarid.maindrawerfragments" />
     </key>
   </component>
   <component name="RunManager">
@@ -221,7 +241,35 @@
       <option name="project" value="LOCAL" />
       <updated>1601757347200</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Restructured the class the by beign able to record the collected profile data and posting it the firebase realtim database">
+      <created>1601757427201</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601757427201</updated>
+    </task>
+    <task id="LOCAL-00009" summary="the Dependencies so far in use">
+      <created>1601757453999</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601757453999</updated>
+    </task>
+    <task id="LOCAL-00010" summary="workspace.xml">
+      <created>1601757537147</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601757537147</updated>
+    </task>
+    <task id="LOCAL-00011" summary="workspace added for this project">
+      <created>1601757564211</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1601757564211</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,16 +283,24 @@
     <MESSAGE value="these fragments are for the bottom navigationn for the overall home navigtion,&#10;this bottom navigation will carry and put things to the users convenience" />
     <MESSAGE value="Enforced the check for the email if its in use already using firebase and sharedprefences to ensure that when create a profile (in ProfileSetUpFragment.kt ) the email match with that in the SignUpFragment.kt" />
     <MESSAGE value="Rectified my error on not instatiating the mAuth in the onStart() method and understanding the if branch for checking the presence of current user in firebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rectified my error on not instatiating the mAuth in the onStart() method and understanding the if branch for checking the presence of current user in firebase" />
+    <MESSAGE value="Restructured the class the by beign able to record the collected profile data and posting it the firebase realtim database" />
+    <MESSAGE value="the Dependencies so far in use" />
+    <MESSAGE value="workspace.xml" />
+    <MESSAGE value="workspace added for this project" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace added for this project" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="416" y="146" width="524" height="505" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601691538899">
+    <state x="458" y="116" width="450" height="564" key="#com.intellij.ide.util.MemberChooser" timestamp="1601804867489">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="416" y="146" width="524" height="505" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1366.741@0.27.1366.741" timestamp="1601691538899" />
+    <state x="458" y="116" width="450" height="564" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1601804867489" />
+    <state x="416" y="146" width="524" height="505" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601813280257">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="416" y="146" width="524" height="505" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1366.741@0.27.1366.741" timestamp="1601813280257" />
     <state x="440" y="42" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1601612829913">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -257,33 +313,41 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="532" y="212" width="291" height="375" key="AndroidCreateXmlResourceDialog/0.27.1366.741@0.27.1366.741" timestamp="1601692650696" />
-    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2" timestamp="1601757536700">
+    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2" timestamp="1601757563930">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1601757536700" />
-    <state width="1320" height="466" key="GridCell.Tab.0.bottom" timestamp="1601754372145">
+    <state x="8" y="27" width="1350" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1601757563930" />
+    <state width="1320" height="466" key="GridCell.Tab.0.bottom" timestamp="1601812938956">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="466" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1601754372145" />
-    <state width="1320" height="466" key="GridCell.Tab.0.center" timestamp="1601754372144">
+    <state width="1320" height="466" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1601812938956" />
+    <state width="1320" height="466" key="GridCell.Tab.0.center" timestamp="1601812938956">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="466" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1601754372144" />
-    <state width="1320" height="466" key="GridCell.Tab.0.left" timestamp="1601754372144">
+    <state width="1320" height="466" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1601812938956" />
+    <state width="1320" height="466" key="GridCell.Tab.0.left" timestamp="1601812938955">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="466" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1601754372144" />
-    <state width="1320" height="466" key="GridCell.Tab.0.right" timestamp="1601754372145">
+    <state width="1320" height="466" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1601812938955" />
+    <state width="1320" height="466" key="GridCell.Tab.0.right" timestamp="1601812938956">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="466" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1601754372145" />
+    <state width="1320" height="466" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1601812938956" />
     <state x="455" y="177" width="446" height="443" key="chooseDestDirectoryDialog" timestamp="1601611711394">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="455" y="177" width="446" height="443" key="chooseDestDirectoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1601611711394" />
-    <state x="343" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1601624334774">
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1601790221332">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="343" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1601624334774" />
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1601790221332" />
+    <state x="132" y="27" width="1092" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601795679834">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="132" y="27" width="1092" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1366.741@0.27.1366.741" timestamp="1601795679834" />
+    <state x="427" y="39" width="501" height="718" key="refactoring.ChangeSignatureDialog" timestamp="1601771596133">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="427" y="39" width="501" height="718" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1601771596133" />
   </component>
 </project>
