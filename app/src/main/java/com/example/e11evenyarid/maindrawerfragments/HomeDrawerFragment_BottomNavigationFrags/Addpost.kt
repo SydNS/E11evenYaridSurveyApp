@@ -35,10 +35,10 @@ class Addpost : AppCompatActivity() {
     private fun posting(author: String, title: String, subtitle: String, post: String) {
         val parameters = JSONObject()
         try {
-            parameters.put("author", author)
-            parameters.put("title", title)
-            parameters.put("subtitle", subtitle)
-            parameters.put("post", post)
+            parameters.put("poster_name", author)
+            parameters.put("post_title", title)
+//            parameters.put("subtitle", subtitle)
+            parameters.put("post_body", post)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
