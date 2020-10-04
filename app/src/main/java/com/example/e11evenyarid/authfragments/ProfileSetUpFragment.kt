@@ -12,25 +12,28 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.e11evenyarid.MainActivity
+import com.example.e11evenyarid.AuthActivity
 import com.example.e11evenyarid.R
 import com.example.e11evenyarid.models.UserProfile
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.layout_profile_set_up.*
 import kotlinx.android.synthetic.main.layout_profile_set_up.view.*
+import kotlin.concurrent.timerTask
 
 
 @Suppress("DEPRECATION")
 class ProfileSetUpFragment : Fragment() {
     private var dialog: ProgressDialog? = null
 
+    private val mAuth = FirebaseAuth.getInstance()
 
-    private var mAuth: FirebaseAuth? = null
     val database = Firebase.database
-    val myRef = database.getReference("usersEmail")
+    val myRef = database.reference.child("Users")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +46,6 @@ class ProfileSetUpFragment : Fragment() {
     }
 
     private fun init(view: View) {
-        mAuth?.currentUser
 
         val preferences = this.activity!!.getSharedPreferences(
             "Stage1Details",
@@ -161,31 +163,54 @@ class ProfileSetUpFragment : Fragment() {
     }
 
     private fun createProfile() {
-
-
-
+        val currentuser = mAuth.currentUser
         val email: String = txtEmailSignUp.text.toString()
         val Country_of_origin: String = Country_of_origin.text.toString()
         val residence: String = residence.text.toString()
         val txtlastname: String = txtlastname.text.toString()
         val txtfirstname: String = txtfirstname.text.toString()
 
-        val userProfile =
-            UserProfile(email, Country_of_origin, residence, txtlastname, txtfirstname)
 
         FirebaseAuth.getInstance()
 
-        myRef.setValue(userProfile)
+        var userId= currentuser?.uid
+        val userProfile =
+            userId?.let { UserProfile(it,email, Country_of_origin, residence, txtlastname, txtfirstname) }
+
+        if (userId != null) {
+            myRef.child(userId).setValue(userProfile)
+        }
 
         val prefs: SharedPreferences? =
             activity?.getSharedPreferences("CheckFirstTime", Context.MODE_PRIVATE)
         prefs?.edit()?.putString("OldOrNew", email)?.apply()
 
-        startActivity(Intent(activity, MainActivity::class.java))
+        startActivity(Intent(activity, AuthActivity::class.java))
         activity?.finish()
     }
 
 
 }
 
+
+
+
+
 //.getReference("userProfiles")
+
+
+//        val userProfile:HashMap<String,String> = HashMap<String,String>()
+//        userProfile.put("email",email)
+//        userProfile.put("Country_of_origin",Country_of_origin)
+//        userProfile.put("residence",residence)
+//        userProfile.put("txtlastname",txtlastname)
+//        userProfile.put("txtfirstname",txtfirstname)
+//        currentuser?.uid?.let { userProfile.put("userId", it) }
+//
+//
+//        myRef.updateChildren(userProfile as Map<String, String>).addOnCompleteListener(
+//            OnCompleteListener {
+//                if (it.isSuccessful){
+//                    Toast.makeText(activity,"bang",Toast.LENGTH_LONG).show()
+//                }
+//            })

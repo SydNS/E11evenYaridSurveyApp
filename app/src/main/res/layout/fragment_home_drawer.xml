@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_home_drawer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".maindrawerfragments.HomeDrawerFragment">
 
@@ -12,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottomnav"
-        app:itemIconSize="35dp"
+        app:itemIconSize="25dp"
         app:itemIconTint="@color/colorWhite"
         app:itemTextColor="@color/colorWhite"/>
 

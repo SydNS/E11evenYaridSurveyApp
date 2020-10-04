@@ -4,26 +4,23 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.e11evenyarid.R
 import com.example.e11evenyarid.models.ForRest
 import java.util.*
 
-class RestApiRCVA(var context: Context, var forRests: ArrayList<ForRest>) :
+class RestApiRCVA(var context: Context,
+                  var forRests: ArrayList<ForRest>
+) :
     RecyclerView.Adapter<RestApiRCVA.ViewHolder>() {
-    var mylistener: OnItemClickListener? = null
 
-    interface OnItemClickListener {
-        fun OnClick(position: Int)
-    }
 
-//    fun setOnRCVItemClickListener(mylistener: Context?) {
-//        this.mylistener = mylistener
-//    }
-
+    lateinit var listener:  OnItemClickListener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.forestapi, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.forestapi, parent, false)
         return ViewHolder(view)
     }
 
@@ -39,27 +36,25 @@ class RestApiRCVA(var context: Context, var forRests: ArrayList<ForRest>) :
         return forRests.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var author: TextView
-        var title: TextView
-        var post: TextView
-        var created: TextView
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
+        var author: TextView = itemView.findViewById(R.id.author)
+        var title: TextView = itemView.findViewById(R.id.title)
+        var post: TextView = itemView.findViewById(R.id.post)
+        var created: TextView = itemView.findViewById(R.id.cdate)
 
         init {
-            post = itemView.findViewById(R.id.post)
-            title = itemView.findViewById(R.id.title)
-            author = itemView.findViewById(R.id.author)
-            created = itemView.findViewById(R.id.cdate)
-
-//use the usual setOnClickListener and then use the interface & its methods
-            itemView.setOnClickListener {
-                if (mylistener != null) {
-                    val position = adapterPosition
-                    if (position != RecyclerView.NO_POSITION) {
-                        mylistener!!.OnClick(position)
-                    }
-                }
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            var position:Int = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
             }
         }
     }
+        interface OnItemClickListener {
+            fun onItemClick(position: Int)
+        }
+
 }
+

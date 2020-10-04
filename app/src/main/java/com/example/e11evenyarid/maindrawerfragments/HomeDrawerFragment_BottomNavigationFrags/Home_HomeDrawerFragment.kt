@@ -130,6 +130,15 @@ class Home_HomeDrawerFragment : Fragment() {
         }
     }
 
+    override fun OnClick(position: Int) {
+        val intent = Intent(activity, PostDetails::class.java)
+        val item = forRestArrayList!![position]
+        intent.putExtra("postId", item.id)
+        intent.putExtra("postTitle", item.title)
+        intent.putExtra("postBody", item.post)
+        startActivity(intent)
+    }
+
 
 }
 
